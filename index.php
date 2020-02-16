@@ -1,5 +1,22 @@
 <?php
  
+define( 'VERSION', '1.0.0' );
+define( 'ROOT_PATH', dirname(__FILE__) );
+
+require_once( ROOT_PATH . '/config.php' );
+
+if( DEBUG ){
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+}
+
+require_once( ROOT_PATH . '/includes/db.php' );
+
+$db = new DB( DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD );
+
+//TODO: Origin Code Below, to be refactored.
+ 
 	include_once('./functions.php');
 
 	$members = get_json('members-active');
