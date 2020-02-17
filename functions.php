@@ -1,7 +1,7 @@
 <?php
 
 define('SITE_PATH',dirname(__FILE__));
-define('SITE_URL','https://www.flushingdating.com');
+if(!defined('SITE_URL')) define('SITE_URL','https://www.flushingdating.com');
 
 include_once(SITE_PATH.'/class/member.php');
 
