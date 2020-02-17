@@ -1,22 +1,9 @@
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteCond %{HTTPS} !on
-RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI}
 RewriteBase /
-RewriteRule index.php https://www.flushingdating.com/ [L,R=301]
-RewriteRule index.html https://www.flushingdating.com/  [L,R=301]
+RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^sitemap.xml$ sitemaps/sitemap_xml.php [L]
-RewriteRule ^sitemap$ sitemaps/sitemap_html.php [L]
-RewriteRule ^blog?$ posts.php [L]
-RewriteRule ^blog/(.*)$ post.php?slug=$1 [L]
-RewriteRule ^members$ members.php [L]
-RewriteRule ^member/(.*)$ member.php?id=$1 [L]
-RewriteRule ^signup$ signup.php [L]
-RewriteRule ^thankyou$ thankyou.php [L]
-RewriteRule ^world-single-union$ pages/world-single-union.php [L]
-ErrorDocument 404 /404.php
-
+RewriteRule (.*) /index.php?uri=$1 [L]
 </IfModule>
 

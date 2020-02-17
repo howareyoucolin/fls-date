@@ -61,4 +61,21 @@ class DB{
 		
 	}
 	
+	public function prepare($sql, ...$args){
+		
+		if( is_null($sql) ){
+			return false;
+		}
+		
+		foreach( $args AS $i => $arg ){
+			if( $arg === null ){
+				throw new Exception( 'Undefined property in arguments!' );
+			}
+			$sql = str_replace( "%s$i", $this->connection->real_escape_string($arg), $sql );
+		}
+		
+		return $sql;
+		
+	}
+	
 }
