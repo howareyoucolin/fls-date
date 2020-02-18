@@ -113,9 +113,27 @@ class Member{
 		
 	}
 	
+	public function get_email(){
+		
+		return $this->get_var('email');
+		
+	}
+	
+	public function get_phone(){
+		
+		return $this->get_var('phone');
+		
+	}
+	
 	public function get_intro(){
 
 		return $this->get_var('intro');
+
+	}
+	
+	public function get_content(){
+
+		return $this->get_var('post_content');
 
 	}
 
@@ -144,20 +162,25 @@ class Member{
 	}
 	
 	public function get_suggestions(){
-		if($this->gender === 'm'){
+		
+		if( $this->get_var('gender') === 'm' ){
 			$suggestions = array(16,21,126,108);
-		}else{
+		}
+		else{
 			$suggestions = array(94,98,111,114);
 		}
+		
 		foreach($suggestions as $key => $value){
 			if($this->id === $value){
 				unset($suggestions[$key]);
 				return $suggestions;
 			}
 		}
+		
 		//Default
 		unset($suggestions[3]);
 		return $suggestions;
+		
 	}
 
 }

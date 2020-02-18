@@ -3,9 +3,10 @@
 		<h3>婚恋博客文章</h3>
 		<ul>
 			<?php 
-			$recent_posts = get_json('post-recent-5');
+			$post = new Post(); 
+			$recent_posts = $post->get_latest_posts( 6 );
 			foreach($recent_posts as $recent_post){
-				echo '<li><a href="'.SITE_URL.'/blog/'.$recent_post->slug.'">'.$recent_post->title.'</a></li>';
+				echo '<li><a href="' . SITE_URL . '/blog/' . $recent_post->post_name . '">' . $recent_post->post_title . '</a></li>';
 			}
 			?>
 			<li><a href="<?php echo SITE_URL;?>/blog">查看所有文章</a></li>

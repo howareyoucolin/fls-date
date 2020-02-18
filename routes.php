@@ -2,18 +2,14 @@
 
 $route = new Router();
 
-//var_dump($route);die;
-switch( $route->get_uri() ){
+switch( $uri = $route->get_uri() ){
 	
 	case '':
-		require_once( ROOT_PATH . '/controllers/index.php' );
+		$route->render( 'home' );
 		break;
 	
-	case 'x':
-		if( $route->get_segment(1) ){
-			$route->render( '404' );
-		}
-		$route->render( 'home' );
+	case( preg_match('/^member\/$d+$/', $uri) ):
+		$route->render( 'member' );
 		break;
 	
 	default:

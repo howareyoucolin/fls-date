@@ -22,6 +22,7 @@ require_once( ROOT_PATH . '/includes/db.php' );
 
 require_once( ROOT_PATH . '/includes/members_factory.php' );
 require_once( ROOT_PATH . '/includes/member.php' );
+require_once( ROOT_PATH . '/includes/post.php' );
 
 //Init DB.
 $db = new DB( DB_HOST, DB_NAME, DB_USERNAME, DB_PASSWORD );
