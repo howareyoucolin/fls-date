@@ -136,6 +136,12 @@ class Member{
 		return $this->get_var('post_content');
 
 	}
+	
+	public function get_last_modified(){
+		
+		return $this->get_var('post_modified');
+		
+	}
 
 	public function get_url(){
 		

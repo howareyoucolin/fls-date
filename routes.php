@@ -21,6 +21,14 @@ switch( $uri ){
 		$route->render( 'post' );
 		break;
 	
+	case preg_match('/^sitemap$/', $uri) ? $uri : !$uri :
+		$route->render( 'sitemap' );
+		break;
+	
+	case preg_match('/^sitemap.xml$/', $uri) ? $uri : !$uri :
+		$route->render( 'sitemap.xml' );
+		break;
+	
 	default:
 		require_once( ROOT_PATH . '/controllers/404.php' );
 		break;
