@@ -1,6 +1,5 @@
 <?php if( ! defined('ROOT_PATH') ) die( 'Curiosity kills cat!' );
 
-$route = new Router();
 $post = new Post();
 $members_factory = new Members_Factory();
 

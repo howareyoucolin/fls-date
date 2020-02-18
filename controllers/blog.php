@@ -1,6 +1,5 @@
 <?php if( ! defined('ROOT_PATH') ) die( 'Curiosity kills cat!' );
 
-$route = new Router();
 $post = new Post();
 
 $posts = $post->get_latest_posts();

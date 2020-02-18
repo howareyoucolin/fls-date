@@ -30,7 +30,7 @@ switch( $uri ){
 		break;
 	
 	default:
-		require_once( ROOT_PATH . '/controllers/404.php' );
+		$route->render( '404' );
 		break;
 	
 }
