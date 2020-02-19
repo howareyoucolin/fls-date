@@ -31,7 +31,7 @@
 					</div>
 					<?php 
 					if($show_ad_once){
-						include( ROOT_PATH . '/parts/ad-mary.php' );
+						include( ROOT_PATH . '/views/part-ad-mary.php' );
 						$show_ad_once = false;
 					}
 					?>

@@ -7,4 +7,4 @@
 <link rel='shortcut icon' href='favicon.ico' type='image/x-icon'/ >
 <meta name="format-detection" content="telephone=no">
 <meta name="google-site-verification" content="rA4kzdLnrqIZt9dQUioJXNJcSwFcvdNOzwEpIRumI8s">
-<?php include(ROOT_PATH.'/parts/css.php');?>
+<?php include_once( ROOT_PATH . '/assets/css/css.php');?>

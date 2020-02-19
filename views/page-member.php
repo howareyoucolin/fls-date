@@ -55,7 +55,7 @@
 				<!-- Suggestions end -->
 				
 				<p>&nbsp;</p>
-				<?php include( ROOT_PATH . '/parts/ad-mary.php' );?>
+				<?php include( ROOT_PATH . '/views/part-ad-mary.php' );?>
 			</div>
 		</div>
 	</div>
