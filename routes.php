@@ -29,6 +29,10 @@ switch( $uri ){
 		$route->render( 'sitemap.xml' );
 		break;
 	
+	case preg_match('/^signup$/', $uri) ? $uri : !$uri :
+		$route->render( 'signup' );
+		break;
+	
 	case preg_match('/^world-single-union$/', $uri) ? $uri : !$uri :
 		$route->render( 'page' );
 		break;

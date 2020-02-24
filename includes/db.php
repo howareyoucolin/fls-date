@@ -17,6 +17,10 @@ class DB{
 		
 	}
 	
+	public function get_last_insert_id(){
+		return $this->connection->insert_id;
+	}
+	
 	public function get_results($sql){
 		
 		$results = array();
