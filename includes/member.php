@@ -11,6 +11,22 @@ class Member{
 		
 	}
 	
+	public function exists(){
+		
+		global $db;
+		
+		$result = $db->get_var(
+			$db->prepare("
+				SELECT ID 
+				FROM wp_posts 
+				WHERE ID = '%s0' AND post_type = 'member'
+			", $this->id )
+		);
+		
+		return (bool) $result;
+		
+	}
+	
 	public function get_data(){
 		
 		$results = new stdClass();
@@ -55,7 +71,13 @@ class Member{
 		}
 		
 		if( isset($this->data->{$key}) ){
-			return $this->data->{$key};
+			
+			//Post_content is the exception with no htmlentities excaping.
+			if( $key == 'post_content' ){
+				return trim($this->data->{$key});
+			}
+			
+			return htmlentities( trim($this->data->{$key}) );
 		}
 		
 		return false;
@@ -107,6 +129,12 @@ class Member{
 		
 	}
 	
+	public function get_opposite_gender(){
+		
+		return $this->get_var('gender') == 'f' ? '男生' : '女生';
+		
+	}
+	
 	public function get_wechat(){
 		
 		return $this->get_var('wechat');
@@ -127,7 +155,18 @@ class Member{
 	
 	public function get_intro(){
 
-		return $this->get_var('intro');
+		if( $this->get_var('intro') ){
+			$content = $this->get_var('intro');
+		}
+		else{
+			$content = $this->get_var('about_me');
+		}
+
+		if( ! $content ){
+			return false;
+		}
+		
+		return mb_substr( $content, 0, 128 );
 
 	}
 	
@@ -135,6 +174,30 @@ class Member{
 
 		return $this->get_var('post_content');
 
+	}
+	
+	public function get_about_me(){
+		
+		$content = $this->get_var('about_me');
+		
+		if( ! $content ){
+			return false;
+		}
+		
+		return nl2br( $content );
+		
+	}
+	
+	public function get_preference(){
+		
+		$content = $this->get_var('preference');
+		
+		if( ! $content ){
+			return false;
+		}
+		
+		return nl2br( $content );
+		
 	}
 	
 	public function get_last_modified(){

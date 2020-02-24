@@ -1,4 +1,4 @@
-<?php
+<?php if( ! defined('ROOT_PATH') ) die( 'Curiosity kills cat!' );
 
 if( ! isset($_POST['submit']) ){
 	die('Something is wrong!');
@@ -11,8 +11,8 @@ $data = array();
 $data['dob'] = $_POST['birth_year'] . str_pad($_POST['birth_month'], 2, '0', STR_PAD_LEFT) . str_pad($_POST['birth_day'], 2, '0', STR_PAD_LEFT);
 $data['email'] = $_POST['email'];
 $data['gender'] = $_POST['gender'];
-$data['bio'] = $_POST['bio'];
-$data['likes'] = $_POST['likes'];
+$data['about_me'] = $_POST['about_me'];
+$data['preference'] = $_POST['preference'];
 $data['phone'] = $_POST['phone'];
 $data['super_title'] = $_POST['super_title'];
 $data['wechat'] = $_POST['wechat'];

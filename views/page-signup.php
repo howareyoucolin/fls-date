@@ -67,9 +67,9 @@
 					<p class="label">标题: </p>
 					<p><input type="text" name="super_title" /></p>
 					<p class="label">基本资料: <span class="red">*</span></p>
-					<p><textarea name="bio"></textarea></p>
+					<p><textarea name="about_me"></textarea></p>
 					<p class="label">喜欢什么样的男生/女生: </p>
-					<p><textarea name="likes"></textarea></p>
+					<p><textarea name="preference"></textarea></p>
 					<p><input name="submit" type="submit" class="btn" value="提交" /></p>
 				</form>
 			</div>

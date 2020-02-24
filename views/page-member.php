@@ -22,8 +22,11 @@
 					<p>性别: <?php echo $member->get_gender();?></p>
 					<p>年龄: <?php echo $member->get_age();?></p>
 					<p>
+						微信:
 						<?php if( $member->get_wechat() ):?>
-						微信: <b class="focus"><?php echo $member->get_wechat();?></b>
+							<b class="focus"><?php echo $member->get_wechat();?></b>
+						<?php else:?>
+							<span class="sub">未填写</span>
 						<?php endif;?>
 					</p>
 					<p>电邮: <?php echo $member->get_email()?$member->get_email():'<span class="sub">未填写</span>';?></p>
@@ -32,7 +35,19 @@
 				<div class="clear"></div>
 			</div>
 			<div class="content">
+				
 				<?php echo $member->get_content();?>
+				
+				<?php if( $member->get_about_me() ):?>
+					<h3>基本资料</h3>
+					<div><?php echo $member->get_about_me();?></div>
+				<?php endif;?>
+				
+				<?php if( $member->get_preference() ):?>
+					<h3>喜欢什么样的<?php echo $member->get_opposite_gender();?></h3>
+					<div><?php echo $member->get_preference();?></div>
+				<?php endif;?>
+				
 				<p>&nbsp;</p>
 				
 				<!-- Suggestions -->
