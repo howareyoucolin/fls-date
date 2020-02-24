@@ -7,6 +7,7 @@
 		.main p.label{margin:0;}
 		.red{color:#D00;}
 		select,input[type=text]{box-sizing:border-box;border:1px solid #EEE;padding:5px;height:36px;outline:0;max-width:400px;width:100%;line-height:24px;}
+		input[name=super_title]{max-width:9999px;}
 		input[type=submit]{width:200px;height:36px;}
 		select{width:80px;}
 		select.small{width:50px;}
@@ -31,6 +32,7 @@
 						<input type="radio" name="gender" value="m"> 男生
 						<input type="radio" name="gender" value="f"> 女生
 					</p>
+					<!--
 					<p class="label">身高:</p>
 					<p>
 						<select name="height">
@@ -40,6 +42,7 @@
 							<?php endfor; ?>
 						</select>
 					</p>
+					-->
 					<p class="label">生日日期: <span class="red">*</span></p>
 					<p>
 						<select name="birth_year">
@@ -58,7 +61,8 @@
 							<?php endfor; ?>
 						</select>
 					</p>
-					<p class="label">微信号码: <span class="red">*</span></p>
+					<p class="label">至少要填一个或一个以上的联系方式: <span class="red">*</span></p>
+					<p class="label">微信号码:</p>
 					<p><input type="text" name="wechat" /></p>
 					<p class="label">电话号码:</p>
 					<p><input type="text" name="phone" /></p>

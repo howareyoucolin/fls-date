@@ -50,6 +50,7 @@
 				
 				<p>&nbsp;</p>
 				
+				<?php /*
 				<!-- Suggestions -->
 				<h3>其它<?php echo $member->get_gender();?>会员</h3>
 				<div class="suggest">
@@ -68,6 +69,7 @@
 					<div class="clear"></div>
 				</div>
 				<!-- Suggestions end -->
+				*/ ?>
 				
 				<p>&nbsp;</p>
 				<?php include( ROOT_PATH . '/views/part-ad-mary.php' );?>
