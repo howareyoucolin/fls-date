@@ -4,6 +4,7 @@ define( 'VERSION', '1.0.1' );
 define( 'ROOT_PATH', dirname(__FILE__) );
 
 require_once( ROOT_PATH . '/config.php' );
+require_once( ROOT_PATH . '/constants.php' );
 
 if( DEBUG ){
 	ini_set('display_errors', 1);

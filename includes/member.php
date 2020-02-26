@@ -242,7 +242,7 @@ class Member{
 			", $this->id )
 		);
 		
-		return $result ? $result : 'https://www.ajactraining.org/wp-content/uploads/2019/09/image-placeholder.jpg';
+		return $result ? $result : DEFAULT_SILHOUETTE;
 		
 	}
 	

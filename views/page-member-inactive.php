@@ -26,7 +26,7 @@
 				<?php echo $member->get_super_title();?>
 			</h2>
 			<div class="highlight">
-				<img class="profile" src="https://www.ajactraining.org/wp-content/uploads/2019/09/image-placeholder.jpg" alt="纽约交友会员照片" />
+				<img class="profile" src="<?php echo DEFAULT_SILHOUETTE;?>" alt="纽约交友会员照片" />
 				<div class="contacts">
 					<p>名字: <span class="sub">信息已过期</span></p>
 					<p>性别: <span class="sub">信息已过期</span></p>
