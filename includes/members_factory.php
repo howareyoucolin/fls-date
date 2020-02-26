@@ -10,6 +10,25 @@ class Members_Factory{
 		$results = $db->get_results("
 			SELECT ID 
 			FROM wp_posts
+			WHERE post_type = 'member'
+		");
+		
+		foreach( $results AS $result ){
+			$members[] = new Member( $result->ID );
+		}
+		
+		return $members;
+		
+	}
+	
+	public function get_all_active_members(){
+		
+		$members = array();
+		
+		global $db;
+		$results = $db->get_results("
+			SELECT ID 
+			FROM wp_posts
 			WHERE post_type = 'member' AND post_status = 'publish'
 		");
 		

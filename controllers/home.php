@@ -5,7 +5,7 @@ $meta_description = '纽约有什么好的婚介交友? 你在相亲,找男朋�
 $meta_keywords = '纽约婚介交友, 法拉盛婚介找友, 纽约找男朋友';
 
 $members_factory = new Members_Factory();
-$members = $members_factory->get_all_members();
+$members = $members_factory->get_all_active_members();
 
 //Render page.
 require_once( ROOT_PATH . '/views/page-home.php' );

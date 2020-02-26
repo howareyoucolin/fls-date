@@ -27,6 +27,22 @@ class Member{
 		
 	}
 	
+	public function is_active(){
+		
+		global $db;
+		
+		$result = $db->get_var(
+			$db->prepare("
+				SELECT post_status 
+				FROM wp_posts 
+				WHERE ID = '%s0'
+			", $this->id )
+		);
+		
+		return $result == 'publish';
+		
+	}
+	
 	public function get_data(){
 		
 		$results = new stdClass();

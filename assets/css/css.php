@@ -3,8 +3,14 @@
 	$lightGray = '#DDD';
 	$themeColor = '#D72171';
 	$yellow = '#F8E71C';
+	$errorRed = '#721c24';
+	$errorLightRed = '#f8d7da';
+	$errorDarkRed = '#f5c6cb';
 ?>
 <style>
+.center{
+	text-align:center;
+}
 .btn {
 	box-shadow:inset 0px 1px 0px 0px #9acc85;
 	background:linear-gradient(to bottom, #74ad5a 5%, #68a54b 100%);
@@ -26,6 +32,11 @@
 .btn:active {
 	position:relative;
 	top:1px;
+}
+.panel-error{
+	border-top:1px solid <?php echo $errorDarkRed;?>; border-bottom:1px solid <?php echo $errorDarkRed;?>;
+	padding:15px;
+	color:<?php echo $errorRed;?>; background-color:<?php echo $errorLightRed;?>;
 }
 body{padding:0;margin:0;background:#FAFAFA;color:<?php echo $lightBlack;?>;font-size:16px;line-height:28px;font-family:"Microsoft Yahei","微软雅黑",sans-serif;}
 ul{margin:0;padding:0;}

@@ -15,4 +15,9 @@ $meta_description = $member->get_intro();
 $meta_keywords = '纽约婚介交友, 法拉盛婚介找友, 纽约找男朋友';
 
 //Render page.
-require_once( ROOT_PATH . '/views/page-member.php' );
+if( $member->is_active() ){
+	require_once( ROOT_PATH . '/views/page-member.php' );
+}
+else{
+	require_once( ROOT_PATH . '/views/page-member-inactive.php' );
+}
