@@ -37,6 +37,10 @@ switch( $uri ){
 		$route->render( 'page' );
 		break;
 	
+	case preg_match('/^profile\/update$/', $uri) ? $uri : !$uri :
+		$route->render( 'profile-update' );
+		break;
+
 	default:
 		$route->render( '404' );
 		break;
