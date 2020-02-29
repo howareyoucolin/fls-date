@@ -50,7 +50,7 @@
 					<p>
 						<select name="birth_year">
 							<?php for($i = 1970; $i <= date('Y') - 18; $i++): ?>
-								<option value="<?php echo $i;?>"><?php echo $i;?></option>
+								<option value="<?php echo $i;?>" <?php if($i==1990) echo 'selected';?>><?php echo $i;?></option>
 							<?php endfor; ?>
 						</select>
 						<select class="small" name="birth_month">
@@ -93,6 +93,33 @@
 	
 	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 	<script>
+	//Adjust date picker days in month.
+	$('select[name=birth_year],select[name=birth_month]').change(function(){
+		
+		var year = $('select[name=birth_year]').val();
+		var month = $('select[name=birth_month]').val();
+
+		var days_in_month = 31;
+
+		if( month == 2 && year % 4 == 0 ){
+			days_in_month = 29;
+		}
+		else if( month == 2 && year % 4 != 0 ){
+			days_in_month = 28;
+		}
+		else if( $.inArray(parseInt(month,10), [4,6,9,11]) !== -1 ){
+			days_in_month = 30;
+		}
+
+		var $days_selector = $('select[name=birth_day]');
+
+		for( var i = $days_selector.children().length; i < days_in_month; i++ ){
+			$days_selector.append('<option value="'+(i+1)+'">'+(i+1)+'</option>');
+		}
+
+		$days_selector.find('option:gt('+(days_in_month-1)+')').remove();
+	});
+	
     //Validations.
     jQuery(document).ready(function($){
 
