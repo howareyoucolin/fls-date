@@ -71,6 +71,7 @@
 						</span>
 						<input type="file" id="file" name="file" />
 					</p>
+					<div id="uploadMsg"></div>
 					<p class="label">至少要填一个或一个以上的联系方式: <span class="red">*</span></p>
 					<p class="label">微信号码:</p>
 					<p><input type="text" name="wechat" /></p>
@@ -198,29 +199,58 @@
 		
 		//File upload async event.
 		$('#file').change(function(){
-			
+
+			var $message = $('#uploadMsg');
+
 			var file_data = $('#file').prop('files')[0];
+            var file_type = file_data.type.toLowerCase();
+            var file_size = file_data.size;
+            var file_extension = file_data.name.split('.').pop().toLowerCase();
+
+			//Selected photo file validations.
+
+			if( ! /^image\/\w+$/.test(file_type) ){
+				$message.html('<p class="panel-error">上传错误: 只允许上传图片文件!</p>');
+				return false;
+			}
+
+			if( ! /^(jpg|jpeg|png|webp|bmp|gif)$/.test(file_extension) ){
+				$message.html('<p class="panel-error">上传错误: 图片文件后缀名不正确!</p>');
+				return false;
+			}
+
+			if( file_size > 1048576 ){
+				$message.html('<p class="panel-error">上传错误: 图片文件太大了,超过了1MB的上传限制!</p>');
+				return false;
+			}
+
 			var form_data = new FormData();
-            form_data.append('file', file_data);
-			
+			form_data.append('file', file_data);
+
 			$.ajax({
-				url: '<?php echo SITE_URL;?>/profile-update',
+				url: '<?php echo SITE_URL;?>/profile/update',
 				dataType: 'text', // what to expect back from the server
 				cache: false,
 				contentType: false,
 				processData: false,
 				data: form_data,
 				type: 'post',
-				success: function (response) {
-					$('#msg').html(response); // display success response from the server
+				success: function (response){
+					
+					if( response ){
+						$('#upload img').attr("src",response);
+					}
+					else{
+						$message.html('<p class="panel-error">上传错误!</p>');
+					}
 				},
-				error: function (response) {
-					$('#msg').html(response); // display error response from the server
+				error: function (response){
+					$message.html('<p class="panel-error">上传错误!</p>');
 				}
 			});
-			
+
 		});
-		
+
 	});
 	</script/>
 
