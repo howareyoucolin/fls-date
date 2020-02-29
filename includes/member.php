@@ -242,7 +242,8 @@ class Member{
 			", $this->id )
 		);
 		
-		return $result ? $result : DEFAULT_SILHOUETTE;
+		//Make sure image is loaded as HTTPS.
+		return $result ? str_replace('http://', 'https://', $result) : DEFAULT_SILHOUETTE;
 		
 	}
 	

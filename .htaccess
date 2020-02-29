@@ -3,6 +3,10 @@
 RewriteEngine On
 RewriteBase /
 
+RewriteEngine On
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
 RewriteRule ^index\.php$ - [L]
 
 #Prevent directory structure being peeped.
