@@ -242,8 +242,23 @@ class Member{
 			", $this->id )
 		);
 		
-		//Make sure image is loaded as HTTPS.
-		return $result ? str_replace('http://', 'https://', $result) : DEFAULT_SILHOUETTE;
+		if( $result ){
+			return str_replace('http://', 'https://', $result);//Make sure image is loaded as HTTPS.
+		}
+		
+		$result = $db->get_var(
+			$db->prepare("
+				SELECT meta_value
+				FROM wp_postmeta
+				WHERE post_id = '%s0' AND meta_key = 'profile_image'
+			", $this->id )
+		);
+		
+		if( $result ){
+			return str_replace('http://', 'https://', $result);//Make sure image is loaded as HTTPS.
+		}
+		
+		return DEFAULT_SILHOUETTE;
 		
 	}
 	

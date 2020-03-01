@@ -70,7 +70,7 @@
 							<img src="<?php echo DEFAULT_SILHOUETTE;?>" />
 						</span>
 						<input type="file" id="file" name="file" />
-						<input type="hidden" name="profile" value="" />
+						<input type="hidden" name="profile_image" value="" />
 					</p>
 					<div id="uploadMsg"></div>
 					<p class="label">至少要填一个或一个以上的联系方式: <span class="red">*</span></p>
@@ -179,9 +179,6 @@
 			}
 			else{
 
-				console.log('EVERYTHINH GOPOD');
-				event.preventDefault();
-
 				return true;
 			}
         });
@@ -240,7 +237,7 @@
 					
 					if( response ){
 						$('#upload img').attr("src", response);
-						$('input[name=profile]').val(response);
+						$('input[name=profile_image]').val(response);
 					}
 					else{
 						$message.html('<p class="panel-error">上传错误!</p>');

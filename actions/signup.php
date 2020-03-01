@@ -11,6 +11,7 @@ $data = array();
 $data['dob'] = $_POST['birth_year'] . str_pad($_POST['birth_month'], 2, '0', STR_PAD_LEFT) . str_pad($_POST['birth_day'], 2, '0', STR_PAD_LEFT);
 $data['email'] = $_POST['email'];
 $data['gender'] = $_POST['gender'];
+$data['profile_image'] = $_POST['profile_image'];
 $data['about_me'] = $_POST['about_me'];
 $data['preference'] = $_POST['preference'];
 $data['phone'] = $_POST['phone'];
@@ -39,10 +40,6 @@ $db->query("
 	VALUES " . implode( ',', $sub_queries ) . "
 ");
 
+header( 'Location:' . SITE_URL . '/signup/thankyou' );
+exit(0);
 
-$meta_title = '纽约婚介交友 - 注册成功';
-$meta_description = '纽约婚介交友免费注册会员成功,十分感谢你注册做本网站的会员, 您的资料已成功提交到我们的后台,您的资料将会出现在我们的网站的页面';
-$meta_keywords = '纽约婚介交友, 法拉盛婚介找友, 纽约找男朋友';
-
-//Render thank-you page if signup is completed successfully.
-require_once( ROOT_PATH . '/views/page-signup-thankyou.php' );
