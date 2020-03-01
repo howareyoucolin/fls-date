@@ -70,6 +70,7 @@
 							<img src="<?php echo DEFAULT_SILHOUETTE;?>" />
 						</span>
 						<input type="file" id="file" name="file" />
+						<input type="hidden" name="profile" value="" />
 					</p>
 					<div id="uploadMsg"></div>
 					<p class="label">至少要填一个或一个以上的联系方式: <span class="red">*</span></p>
@@ -214,8 +215,8 @@
 				return false;
 			}
 
-			if( ! /^(jpg|jpeg|png|webp|bmp|gif)$/.test(file_extension) ){
-				$message.html('<p class="panel-error">上传错误: 图片文件后缀名不正确!</p>');
+			if( ! /^(jpg|jpeg|png|gif)$/.test(file_extension) ){
+				$message.html('<p class="panel-error">上传错误: 图片文件后缀只允许jpg,jpeg,png,gif!</p>');
 				return false;
 			}
 
@@ -238,7 +239,8 @@
 				success: function (response){
 					
 					if( response ){
-						$('#upload img').attr("src",response);
+						$('#upload img').attr("src", response);
+						$('input[name=profile]').val(response);
 					}
 					else{
 						$message.html('<p class="panel-error">上传错误!</p>');
