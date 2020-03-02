@@ -13,7 +13,11 @@
 		select{width:80px;}
 		select.small{width:50px;}
 		textarea{box-sizing:border-box;border:1px solid #EEE;padding:5px;outline:0;width:100%;height:180px;line-height:24px;}
-		#upload{display:block;width:185px;height:185px;cursor:pointer;}
+		#upload{display:block;position:relative;width:185px;height:185px;cursor:pointer;}
+		#upload-close{
+			position:absolute;top:0;right:0;width:24px;height:24px;line-height:24px;text-align:center;
+			background:#D00;border:1px solid #FFF;color:#FFF;font-size:20px;z-index:99;cursor:pointer;display:none;
+		}
 		@media only screen and (max-width: 680px){
 			textarea{height:250px;}
 			input[type=submit]{width:100%;}
@@ -67,6 +71,7 @@
 					<p>
 						上传头像:<br>
 						<span id="upload">
+							<span id="upload-close">&times;</span>
 							<img src="<?php echo DEFAULT_SILHOUETTE;?>" />
 						</span>
 						<input type="file" id="file" name="file" />
@@ -238,6 +243,7 @@
 					if( response ){
 						$('#upload img').attr("src", response);
 						$('input[name=profile_image]').val(response);
+						$('#upload-close').show();
 					}
 					else{
 						$message.html('<p class="panel-error">上传错误!</p>');
@@ -248,6 +254,17 @@
 				}
 			});
 
+		});
+
+		//Remove uploaded image event.
+		$('#upload-close').click(function(event){
+			
+			event.stopPropagation();
+			
+			$('#upload img').attr("src", '<?php echo DEFAULT_SILHOUETTE;?>');
+			$('#upload-close').fadeOut("slow");
+	
+			$('input[name=profile_image]').val('');
 		});
 
 	});
