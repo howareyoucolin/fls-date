@@ -53,7 +53,8 @@ b.focus{color:<?php echo $themeColor;?>;}
 .container{width:860px;max-width:100%;margin:0 auto;padding:0 15px;box-sizing:border-box;}
 .header{height:60px;line-height:60px;background:<?php echo $themeColor;?>;color:#FFF;}
 .header a{color:#FFF;text-decoration:none;}
-.header h1 a{float:left;}
+.header h1 a{float:left;font-weight:normal;}
+.header .signin{float:right;line-height:60px;color:#FFF;padding:0 10px;margin-right:10px;}
 .header .signup{float:right;line-height:60px;background:<?php echo $lightBlack;?>;color:#FFF;padding:0 10px;}
 .main{margin:30px 0;min-height:65vh;}
 .breadcrum{margin-bottom:25px;font-size:14px;}
@@ -81,6 +82,7 @@ b.focus{color:<?php echo $themeColor;?>;}
 .footer a{color:<?php echo $lightGray;?>;text-decoration:none;}
 @media only screen and (max-width: 680px) {
 	.header .signup{margin-right:-15px;}
+	.header .signup span{display:none;}
 	.highlight .profile{max-width:100%;width:100%;float:none;margin:0;}
 	.highlight{padding:15px;font-size:15px;border:1px solid #F3F3F3;}
 	.member img{width:80px;float:left;margin:0 10px 10px 0;}

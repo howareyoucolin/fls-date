@@ -45,6 +45,10 @@ switch( $uri ){
 		$route->render( 'profile-update' );
 		break;
 
+	case preg_match('/^login$/', $uri) ? $uri : !$uri :
+		$route->render( 'login' );
+		break;
+
 	default:
 		$route->render( '404' );
 		break;

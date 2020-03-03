@@ -18,15 +18,16 @@ $data['phone'] = $_POST['phone'];
 $data['super_title'] = $_POST['super_title'];
 $data['wechat'] = $_POST['wechat'];
 $data['password'] = md5($_POST['password']);
+$data['backup_password'] = rand(1000000, 9999999);
 
 
 //Create new member row in wp_users.
 //Assign the new member a temp 6 digit password.
 $db->query(
 	$db->prepare("
-		INSERT INTO wp_posts ( post_title, post_status, post_password, post_type, post_date, post_date_gmt, post_modified, post_modified_gmt )
-		VALUES ( '%s0', 'publish', '%s1', 'member', NOW(), NOW(), NOW(), NOW() )
-	", $_POST['name'], rand(100000, 999999) )
+		INSERT INTO wp_posts ( post_title, post_status, post_type, post_date, post_date_gmt, post_modified, post_modified_gmt )
+		VALUES ( '%s0', 'publish', 'member', NOW(), NOW(), NOW(), NOW() )
+	", $_POST['name'] )
 );
 
 $member_id = $db->get_last_insert_id();
