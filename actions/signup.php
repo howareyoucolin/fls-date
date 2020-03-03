@@ -17,6 +17,7 @@ $data['preference'] = $_POST['preference'];
 $data['phone'] = $_POST['phone'];
 $data['super_title'] = $_POST['super_title'];
 $data['wechat'] = $_POST['wechat'];
+$data['password'] = md5($_POST['password']);
 
 
 //Create new member row in wp_users.

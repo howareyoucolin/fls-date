@@ -31,6 +31,14 @@
 		#err-msg p{
 			margin:0;
 		}
+		#eyes{
+			color:#747474;
+			cursor:pointer;
+		}
+		#eyes.active{
+			color:#D72171;
+		}
+		input[name=password]{box-sizing:border-box;border:1px solid #EEE;padding:5px;height:36px;outline:0;max-width:250px;width:75%;line-height:24px;}
 	</style>
 </head>
 <body>
@@ -85,6 +93,8 @@
 					<p><input type="text" name="phone" /></p>
 					<p class="label">电子邮箱:</p>
 					<p><input type="text" name="email" /></p>
+					<p class="label">帐号密码:(用于以后更改资料)</p>
+					<p><input type="password" name="password" /> <span id="eyes"> &#128064 </span> </p>
 					<p class="label">标题: </p>
 					<p><input type="text" name="super_title" /></p>
 					<p class="label">基本资料: <span class="red">*</span></p>
@@ -127,6 +137,23 @@
 		$days_selector.find('option:gt('+(days_in_month-1)+')').remove();
 	});
 	
+	//Show-hide password event.
+	var showPassword = false;
+	$('#eyes').click(function(){
+		
+		showPassword = !showPassword;
+		
+		if( showPassword ){
+			$(this).addClass('active');
+			$('input[name=password]').attr('type','text');
+		}
+		else{
+			$(this).removeClass('active');
+			$('input[name=password]').attr('type','password');
+		}
+		
+	});
+	
     //Validations.
     jQuery(document).ready(function($){
 
@@ -138,6 +165,7 @@
 			var wechat = $('input[name=wechat]').val().trim();
 			var phone = $('input[name=phone]').val().trim();
 			var email = $('input[name=email]').val().trim();
+			var password = $('input[name=password]').val().trim();
 			var super_title = $('input[name=super_title]').val().trim();
 			var about_me = $('textarea[name=about_me]').val().trim();
 
@@ -167,6 +195,10 @@
 
 			if( email.length > 0 && ! /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email) ){
 				errors.push('电子邮箱格式不正确!');
+			}
+
+			if( password.length < 8 ){
+				errors.push('帐号密码至少要有8位数!');
 			}
 
 			if( errors.length > 0 ){
