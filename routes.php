@@ -45,8 +45,12 @@ switch( $uri ){
 		$route->render( 'profile-update' );
 		break;
 
-	case preg_match('/^login$/', $uri) ? $uri : !$uri :
+	case preg_match('/^login(\/\d+)?$/', $uri) ? $uri : !$uri :
 		$route->render( 'login' );
+		break;
+
+	case preg_match('/^account\/\d+$/', $uri) ? $uri : !$uri :
+		$route->render( 'account' );
 		break;
 
 	default:
