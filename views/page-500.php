@@ -11,9 +11,9 @@
 	</style>
 	<div class="main">
 		<div class="container">
-			<h2>您要找的网页不存在</h2>
+			<h2>网页好像出了点问题!</h2>
 			<div class="content">
-				<img class="error-404" src="<?php echo SITE_URL;?>/assets/images/404.png" alt="网页不存在" />
+				<img class="error-404" src="<?php echo SITE_URL;?>/assets/images/500.png" alt="网页不存在" />
 				<p>
 					<a href="<?php echo SITE_URL;?>">点击这儿返回首页</a>
 				</p>

@@ -53,6 +53,10 @@ switch( $uri ){
 		$route->render( 'account' );
 		break;
 
+	case preg_match('/^500$/', $uri) ? $uri : !$uri :
+		$route->render( '500' );
+		break;
+
 	default:
 		$route->render( '404' );
 		break;

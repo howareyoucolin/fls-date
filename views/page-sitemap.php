@@ -24,6 +24,9 @@
 					<li>
 						<a href="<?php echo SITE_URL;?>/404">404页面</a>
 					</li>
+					<li>
+						<a href="<?php echo SITE_URL;?>/500">500页面</a>
+					</li>
 				</ul>
 				<p>&nbsp;</p>
 				<div>博客文章:</div>
