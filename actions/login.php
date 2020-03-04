@@ -7,7 +7,7 @@ $auth = new Authorizer();
 $member_id = $auth->check_login_credential( $username, $password );
 
 if( $member_id ){
-	header( 'Location:' . SITE_URL . '/account/' . $member_id );
+	header( 'Location:' . SITE_URL . '/account' );
 	exit(0);
 }
 else{

@@ -1,3 +1,5 @@
 <?php if( ! defined('ROOT_PATH') ) die( 'Curiosity kills cat!' );
 
-die('XXX XXX XXXX');
+$auth = new Authorizer();
+
+var_dump( $auth->get_login_status() );

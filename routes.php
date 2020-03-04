@@ -49,7 +49,7 @@ switch( $uri ){
 		$route->render( 'login' );
 		break;
 
-	case preg_match('/^account\/\d+$/', $uri) ? $uri : !$uri :
+	case preg_match('/^account$/', $uri) ? $uri : !$uri :
 		$route->render( 'account' );
 		break;
 

@@ -52,21 +52,27 @@ class Authorizer{
 			return -1;
 		}
 		
-		$result = $db->get_var(
-			$db->prepare("
-				SELECT EXISTS(
-					SELECT * FROM 
-					wp_postmeta
-					WHERE post_id = '%s0' AND meta_key = 'password' AND meta_value = '%s1'
-				)", $_SESSION['member_id'], $_SESSION['password'] )
-		);
-		
-		if( $result ){
+		if( $this->is_authorized($_SESSION['member_id'], $_SESSION['password']) ){
 			return 1;
 		}
 		
 		return 0;
 		
+	}
+
+	public function is_authorized($id, $password){
+
+		global $db;
+
+		return $db->get_var(
+			$db->prepare("
+				SELECT EXISTS(
+					SELECT * FROM 
+					wp_postmeta
+					WHERE post_id = '%s0' AND (meta_key = 'password' OR meta_key = 'backup_password') AND meta_value = '%s1'
+				)", $id, $password )
+		);
+
 	}
 	
 }
