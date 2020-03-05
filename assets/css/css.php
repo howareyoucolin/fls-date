@@ -6,6 +6,9 @@
 	$errorRed = '#721c24';
 	$errorLightRed = '#f8d7da';
 	$errorDarkRed = '#f5c6cb';
+	$successGreen = '#155724';
+	$successLightGreen = '#d4edda';
+	$successDarkGreen = '#c3e6cb';
 ?>
 <style>
 .center{
@@ -37,6 +40,11 @@
 	border-top:1px solid <?php echo $errorDarkRed;?>; border-bottom:1px solid <?php echo $errorDarkRed;?>;
 	padding:15px;
 	color:<?php echo $errorRed;?>; background-color:<?php echo $errorLightRed;?>;
+}
+.panel-success{
+	border-top:1px solid <?php echo $successDarkGreen;?>; border-bottom:1px solid <?php echo $successDarkGreen;?>;
+	padding:15px;
+	color:<?php echo $successGreen;?>; background-color:<?php echo $successLightGreen;?>;
 }
 body{padding:0;margin:0;background:#FAFAFA;color:<?php echo $lightBlack;?>;font-size:16px;line-height:28px;font-family:"Microsoft Yahei","微软雅黑",sans-serif;}
 ul{margin:0;padding:0;}

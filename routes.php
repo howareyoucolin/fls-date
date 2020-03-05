@@ -48,6 +48,10 @@ switch( $uri ){
 	case preg_match('/^login(\/\d+)?$/', $uri) ? $uri : !$uri :
 		$route->render( 'login' );
 		break;
+		
+	case preg_match('/^logout$/', $uri) ? $uri : !$uri :
+		$route->render( 'logout' );
+		break;
 
 	case preg_match('/^account$/', $uri) ? $uri : !$uri :
 		$route->render( 'account' );

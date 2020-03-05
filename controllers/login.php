@@ -9,6 +9,7 @@ if( isset($_POST['submit']) ){
 $route = new Router();
 
 $error_message = false;
+$success_message = false;
 
 if( $route->get_segment(1) == 403 ){
 	$error_message = '用户名或密码不正确！';
@@ -18,6 +19,9 @@ elseif( $route->get_segment(1) == 408 ){
 }
 elseif( $route->get_segment(1) == 500 ){
 	$error_message = '请先登陆！';
+}
+elseif( $route->get_segment(1) == 202 ){
+	$success_message = '成功地退出了帐号！';
 }
 
 $meta_title = '纽约同城婚介交友 - 会员登陆';

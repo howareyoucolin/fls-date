@@ -18,13 +18,15 @@
 			<h2>会员登陆</h2>
 		
 			<p>&nbsp;</p>
-		
-			<!--<div id="err-msg" class="panel-error"></div>-->
 				
 			<form id="form-login" action="" method="post">
 			
 				<?php if( $error_message ):?>
 					<div class="panel-error"><?php echo $error_message;?></div>
+				<?php endif;?>
+				
+				<?php if( $success_message ):?>
+					<div class="panel-success"><?php echo $success_message;?></div>
 				<?php endif;?>
 			
 				<p>你可以登陆到你的帐号用以下的其中一个方式（微信号码或者电话号码或者电子邮箱）</p>

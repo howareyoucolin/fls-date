@@ -75,4 +75,20 @@ class Authorizer{
 
 	}
 	
+	public function unset_login_sessions(){
+		
+		if( isset($_SESSION['password']) ){
+			unset( $_SESSION['password'] );
+		}
+		
+		if( isset($_SESSION['member_id']) ){
+			unset( $_SESSION['member_id'] );
+		}
+		
+		if( isset($_SESSION['expire']) ){
+			unset( $_SESSION['expire'] );
+		}
+		
+	}
+	
 }
