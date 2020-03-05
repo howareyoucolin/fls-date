@@ -109,8 +109,8 @@ class Member{
 		$current_day = date( 'd' );
 		
 		$birth_year = substr( $dob, 0, 4 );
-		$birth_month = substr( $dob, 4, 6 );
-		$birth_day = substr( $dob, 6, 8 );
+		$birth_month = substr( $dob, 4, 2 );
+		$birth_day = substr( $dob, 6, 2 );
 		
 		if( $birth_month < $current_month ){
 			return $current_year - $birth_year;
