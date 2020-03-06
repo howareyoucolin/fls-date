@@ -6,7 +6,7 @@ $auth_status = $auth->get_login_status();
 ?>
 <div class="header">
 	<div class="container">
-		<h1><a href="<?php echo SITE_URL;?>">纽约同城婚介交友</a></h1>
+		<h1><a href="<?php echo SITE_URL;?>">纽约同城交友</a></h1>
 		
 		<?php if( $auth_status != 1 ):?>
 			<a class="signup" href="<?php echo SITE_URL;?>/signup">注册<span>会员</span></a>

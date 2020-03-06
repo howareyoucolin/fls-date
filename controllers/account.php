@@ -13,6 +13,12 @@ elseif( $auth_status == -1 ){
 	exit(0);
 }
 
+//Submit action.
+if( isset($_POST['submit']) ){
+	require_once( ROOT_PATH . '/actions/member-update.php' );
+	exit(0);
+}
+
 $member = new Member( $_SESSION['member_id'] );
 
 $meta_title = '纽约同城交友 - 会员资料更改页面';
