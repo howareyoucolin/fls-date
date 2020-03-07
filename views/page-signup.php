@@ -154,6 +154,11 @@
 		
 	});
 	
+	//Auto-correct phone number.
+	$('input[name=phone]').keyup(function(){
+		$(this).val( $(this).val().replace(/\D+/g, '').substring(0,11) );
+	});
+	
     //Validations.
     jQuery(document).ready(function($){
 
@@ -189,7 +194,7 @@
 				errors.push('微信号码格式不正确!');
 			}
 
-			if( phone.length > 0 && ! /^\+?1?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phone) ){
+			if( ! /\d{10,11}/.test(phone) ){
 				errors.push('电话号码格式不正确!');
 			}
 

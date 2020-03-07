@@ -19,6 +19,13 @@ if( isset($_POST['submit']) ){
 	exit(0);
 }
 
+$route = new Router();
+$success_message = false;
+
+if( $route->get_segment(1) == 'saved' ){
+	$success_message = '资料的更改已成功保存！';
+}
+
 $member = new Member( $_SESSION['member_id'] );
 
 $meta_title = '纽约同城交友 - 会员资料更改页面';

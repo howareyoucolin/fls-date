@@ -53,7 +53,7 @@ switch( $uri ){
 		$route->render( 'logout' );
 		break;
 
-	case preg_match('/^account$/', $uri) ? $uri : !$uri :
+	case preg_match('/^account(\/saved)?$/', $uri) ? $uri : !$uri :
 		$route->render( 'account' );
 		break;
 

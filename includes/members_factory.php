@@ -11,6 +11,7 @@ class Members_Factory{
 			SELECT ID 
 			FROM wp_posts
 			WHERE post_type = 'member'
+			ORDER BY post_date DESC
 		");
 		
 		foreach( $results AS $result ){
@@ -30,6 +31,7 @@ class Members_Factory{
 			SELECT ID 
 			FROM wp_posts
 			WHERE post_type = 'member' AND post_status = 'publish'
+			ORDER BY post_date DESC
 		");
 		
 		foreach( $results AS $result ){

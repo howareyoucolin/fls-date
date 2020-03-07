@@ -64,6 +64,8 @@ b.focus{color:<?php echo $themeColor;?>;}
 .header h1 a{float:left;font-weight:normal;}
 .header .signin{float:right;line-height:60px;color:#FFF;padding:0 10px;margin-right:10px;}
 .header .signup{float:right;line-height:60px;background:<?php echo $lightBlack;?>;color:#FFF;padding:0 10px;}
+.sub-header{height:48px;line-height:48px;background:<?php echo $lightBlack;?>;text-align:right;}
+.sub-header a{color:#FFF;padding:0 10px;text-decoration:none;}
 .main{margin:30px 0;min-height:65vh;}
 .breadcrum{margin-bottom:25px;font-size:14px;}
 .breadcrum a{text-decoration:none;color:<?php echo $lightBlack;?>;}

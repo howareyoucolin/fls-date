@@ -52,5 +52,5 @@ foreach( $data as $key => $value ){
 }
 
 
-header( 'Location:' . SITE_URL . '/account' );
+header( 'Location:' . SITE_URL . '/account/saved' );
 exit(0);

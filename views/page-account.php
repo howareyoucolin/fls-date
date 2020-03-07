@@ -16,7 +16,12 @@
 		#upload{display:block;position:relative;width:185px;height:185px;cursor:pointer;}
 		#upload-close{
 			position:absolute;top:0;right:0;width:24px;height:24px;line-height:24px;text-align:center;
-			background:#D00;border:1px solid #FFF;color:#FFF;font-size:20px;z-index:99;cursor:pointer;display:none;
+			background:#D00;border:1px solid #FFF;color:#FFF;font-size:20px;z-index:99;cursor:pointer;
+			<?php if( $member->get_var('profile_image') ):?>
+				display:block;
+			<?php else:?>
+				display:none;
+			<?php endif;?>
 		}
 		@media only screen and (max-width: 680px){
 			textarea{height:250px;}
@@ -44,6 +49,11 @@
 	<?php include( ROOT_PATH . '/views/part-header.php' );?>
 	<div class="main">
 		<div class="container">
+		
+			<?php if( $success_message ):?>
+				<div class="panel-success"><?php echo $success_message;?></div>
+			<?php endif;?>
+		
 			<h2>会员资料更改</h2>
 			<div class="content">
 			
@@ -149,7 +159,11 @@
 	
 	$('select[name=birth_year],select[name=birth_month]').change(adjust_days);
 
-	
+	//Auto-correct phone number.
+	$('input[name=phone]').keyup(function(){
+		$(this).val( $(this).val().replace(/\D+/g, '').substring(0,11) );
+	});
+		
     //Validations.
     jQuery(document).ready(function($){
 
@@ -184,7 +198,7 @@
 				errors.push('微信号码格式不正确!');
 			}
 
-			if( phone.length > 0 && ! /^\+?1?\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/.test(phone) ){
+			if( ! /\d{10,11}/.test(phone) ){
 				errors.push('电话号码格式不正确!');
 			}
 
